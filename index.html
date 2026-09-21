@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mathematics Formula Revision — ICSE Class 10</title>
+<style>
+  :root{
+    --bg:#0f1226; --panel:#181c3a; --panel2:#1f2447; --ink:#eef1ff; --muted:#a6adda;
+    --accent:#7c5cff; --accent2:#00d4ff; --good:#2dd4a7; --warn:#ffb454; --card:#1c2147;
+    --line:#2c3265; --chip:#262c58;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+    background:radial-gradient(1200px 600px at 80% -10%,#232a5c 0%,var(--bg) 55%) fixed,var(--bg);
+    color:var(--ink); line-height:1.55; min-height:100vh;
+  }
+  header{
+    padding:48px 20px 28px; text-align:center; position:relative;
+    background:linear-gradient(180deg,rgba(124,92,255,.25),rgba(0,212,255,.06) 60%,transparent);
+  }
+  header h1{
+    font-size:clamp(1.8rem,4vw,3rem); letter-spacing:.5px;
+    background:linear-gradient(90deg,var(--accent2),var(--accent));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  header p{color:var(--muted); margin-top:8px}
+  .controls{display:flex; gap:12px; justify-content:center; align-items:center; margin-top:22px; flex-wrap:wrap}
+  #search{
+    width:min(420px,90vw); padding:12px 18px; border-radius:999px; border:1px solid var(--line);
+    background:var(--panel); color:var(--ink); font-size:1rem; outline:none; transition:.2s;
+  }
+  #search:focus{border-color:var(--accent); box-shadow:0 0 0 3px rgba(124,92,255,.25)}
+  .btn{
+    cursor:pointer; border:1px solid var(--line); background:var(--panel); color:var(--ink);
+    padding:12px 20px; border-radius:999px; font-size:.95rem; transition:.2s;
+  }
+  .btn:hover{border-color:var(--accent); transform:translateY(-1px)}
+  nav.pills{
+    position:sticky; top:0; z-index:50; display:flex; gap:8px; justify-content:center; flex-wrap:wrap;
+    padding:12px; background:rgba(15,18,38,.85); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);
+  }
+  nav.pills a{
+    text-decoration:none; color:var(--ink); background:var(--chip); border:1px solid var(--line);
+    padding:8px 14px; border-radius:999px; font-size:.88rem; transition:.2s;
+  }
+  nav.pills a:hover,nav.pills a.active{background:var(--accent); border-color:var(--accent)}
+  main{max-width:1100px; margin:0 auto; padding:28px 18px 80px}
+  section{margin:56px 0; scroll-margin-top:90px}
+  .sec-head{display:flex; align-items:center; gap:14px; margin-bottom:18px}
+  .sec-num{
+    width:46px; height:46px; flex:0 0 46px; display:grid; place-items:center; border-radius:14px;
+    font-weight:800; font-size:1.15rem; color:#0b0e20;
+    background:linear-gradient(135deg,var(--accent2),var(--accent));
+  }
+  .sec-head h2{font-size:clamp(1.3rem,2.6vw,1.9rem)}
+  .sec-head small{display:block; color:var(--muted); font-weight:400}
+  .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:14px}
+  .card{
+    background:linear-gradient(180deg,var(--card),var(--panel)); border:1px solid var(--line);
+    border-radius:16px; padding:18px; transition:.2s;
+  }
+  .card:hover{transform:translateY(-2px); border-color:var(--accent)}
+  .card h3{
+    font-size:.8rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--accent2); margin-bottom:10px;
+  }
+  .formula{
+    font-size:1.08rem; padding:12px 14px; background:var(--panel2); border:1px dashed var(--line);
+    border-radius:12px; margin:8px 0;
+  }
+  .formula b{color:#fff}
+  .note{color:var(--muted); font-size:.88rem; margin-top:6px}
+  .note b{color:var(--warn)}
+  table{width:100%; border-collapse:collapse; margin-top:8px; font-size:.95rem}
+  th,td{border:1px solid var(--line); padding:7px 10px; text-align:center}
+  th{background:var(--panel2); color:var(--accent2); font-weight:600}
+  td b{color:#fff}
+  .frac{display:inline-block; text-align:center; vertical-align:middle; margin:0 3px}
+  .frac span{display:block; padding:0 4px}
+  .frac span:first-child{border-bottom:1.5px solid var(--ink)}
+  .tips{
+    margin-top:80px; background:linear-gradient(135deg,rgba(45,212,167,.12),rgba(0,212,255,.08));
+    border:1px solid rgba(45,212,167,.35); border-radius:16px; padding:22px;
+  }
+  .tips h2{color:var(--good); margin-bottom:10px; font-size:1.2rem}
+  .tips li{margin:6px 0 6px 20px; color:var(--ink)}
+  footer{text-align:center; color:var(--muted); padding:30px 10px; font-size:.85rem; border-top:1px solid var(--line)}
+  .hidden{display:none !important}
+  .noresult{display:none; text-align:center; color:var(--muted); padding:40px}
+  mark{background:rgba(255,180,84,.35); color:#fff; border-radius:4px; padding:0 2px}
+  @media print{
+    body{background:#fff; color:#000}
+    header,nav.pills,.controls,.btn,#search{display:none}
+    .card,.formula,th,td{background:#fff; color:#000; border-color:#bbb}
+    .card h3{color:#555} .formula b,td b{color:#000} .note{color:#444}
+    section{break-inside:avoid-page; margin:18px 0}
+    .tips{background:#f4fff9; border-color:#8fd8b8}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>📐 Mathematics Formula Revision</h1>
+  <p>ICSE Class 10 · Six Chapters · One Quick Revision Page</p>
+  <div class="controls">
+    <input id="search" type="search" placeholder="🔍 Search a formula… (e.g. median, GST, tan)">
+    <button class="btn" onclick="window.print()">🖨️ Print / Save PDF</button>
+    <button class="btn" id="expandAll">📖 Expand all</button>
+  </div>
+</header>
+
+<nav class="pills">
+  <a href="#gst">1 · GST</a>
+  <a href="#shares">2 · Shares &amp; Dividends</a>
+  <a href="#trig">3 · Trig Identities</a>
+  <a href="#heights">4 · Heights &amp; Distances</a>
+  <a href="#graphs">5 · Histograms &amp; Ogives</a>
+  <a href="#central">6 · Central Tendency</a>
+</nav>
+
+<main>
+
+<!-- 1 GST -->
+<section id="gst">
+  <div class="sec-head"><div class="sec-num">1</div>
+    <h2>GST <small>Goods &amp; Services Tax</small></h2></div>
+  <div class="grid">
+    <div class="card" data-k="intra state sale cgst sgst half rate">
+      <h3>Intra-state sale</h3>
+      <div class="formula"><b>GST = CGST + SGST</b><br>CGST = SGST = ½ × GST rate</div>
+      <div class="note">e.g. GST 12% → CGST 6% + SGST 6%</div>
+    </div>
+    <div class="card" data-k="inter state sale igst full rate">
+      <h3>Inter-state sale</h3>
+      <div class="formula"><b>IGST = full GST rate</b> (no CGST / SGST split)</div>
+    </div>
+    <div class="card" data-k="tax paid government output input credit">
+      <h3>Tax paid to Government</h3>
+      <div class="formula"><b>Tax = Output GST − Input GST</b><br>Input GST = GST paid on purchases (credit)</div>
+      <div class="note"><b>Key:</b> GST is charged on the <b>discounted</b> price, never on M.P.</div>
+    </div>
+    <div class="card" data-k="discount marked price selling price">
+      <h3>Discount chain</h3>
+      <div class="formula">Discount = d% of M.P.<br><b>S.P. = M.P. − Discount</b></div>
+      <div class="formula">Price incl. GST = S.P. + GST on S.P.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 Shares -->
+<section id="shares">
+  <div class="sec-head"><div class="sec-num">2</div>
+    <h2>Shares &amp; Dividends <small>Investment, FV, MV, Return</small></h2></div>
+  <div class="grid">
+    <div class="card" data-k="face value nominal market value premium discount">
+      <h3>Values of a share</h3>
+      <div class="formula"><b>F.V.</b> = Face/Nominal value (usually ₹100)<br><b>M.V.</b> = Market value<br>Premium → M.V. &gt; F.V. · Discount → M.V. &lt; F.V.</div>
+    </div>
+    <div class="card" data-k="number of shares investment income dividend">
+      <h3>Number of shares</h3>
+      <div class="formula">n = <span class="frac"><span>Investment</span><span>M.V.</span></span>
+        = <span class="frac"><span>Annual income</span><span>Dividend per share</span></span></div>
+    </div>
+    <div class="card" data-k="dividend rate face value income">
+      <h3>Dividend &amp; income</h3>
+      <div class="formula"><b>Dividend is always on F.V.</b><br>Annual income = <span class="frac"><span>Rate × F.V. × n</span><span>100</span></span></div>
+      <div class="note">“15% ₹100 shares at ₹145” → income ₹15 on <b>₹100</b>, not ₹145</div>
+    </div>
+    <div class="card" data-k="return percentage investment yield">
+      <h3>Return %</h3>
+      <div class="formula">Return% = <span class="frac"><span>Annual income</span><span>Investment</span></span> × 100</div>
+      <div class="formula">Return% = <span class="frac"><span>Rate × F.V.</span><span>M.V.</span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 Trig -->
+<section id="trig">
+  <div class="sec-head"><div class="sec-num">3</div>
+    <h2>Trigonometrical Identities <small>Complementary angles &amp; standard values</small></h2></div>
+  <div class="grid">
+    <div class="card" data-k="pythagorean identities sin squared cos squared tan sec cot cosec">
+      <h3>The three Pythagorean identities</h3>
+      <div class="formula"><b>sin²θ + cos²θ = 1</b></div>
+      <div class="formula"><b>1 + tan²θ = sec²θ</b></div>
+      <div class="formula"><b>1 + cot²θ = cosec²θ</b></div>
+    </div>
+    <div class="card" data-k="reciprocal ratios sin cos tan sec cosec cot">
+      <h3>Reciprocal &amp; quotient</h3>
+      <div class="formula">sin θ = <span class="frac"><span>1</span><span>cosec θ</span></span> ·
+        cos θ = <span class="frac"><span>1</span><span>sec θ</span></span> ·
+        tan θ = <span class="frac"><span>1</span><span>cot θ</span></span> = <span class="frac"><span>sin θ</span><span>cos θ</span></span></div>
+    </div>
+    <div class="card" data-k="complementary angles 90 minus theta sin cos tan cot">
+      <h3>Complementary angles (90° − θ)</h3>
+      <table>
+        <tr><th>sin(90°−θ)</th><td><b>cos θ</b></td></tr>
+        <tr><th>cos(90°−θ)</th><td><b>sin θ</b></td></tr>
+        <tr><th>tan(90°−θ)</th><td><b>cot θ</b></td></tr>
+        <tr><th>sec(90°−θ)</th><td><b>cosec θ</b></td></tr>
+      </table>
+    </div>
+    <div class="card" data-k="standard values table 0 30 45 60 90 degree">
+      <h3>Standard values</h3>
+      <table>
+        <tr><th>θ</th><th>0°</th><th>30°</th><th>45°</th><th>60°</th><th>90°</th></tr>
+        <tr><th>sin</th><td>0</td><td>½</td><td>1/√2</td><td>√3/2</td><td>1</td></tr>
+        <tr><th>cos</th><td>1</td><td>√3/2</td><td>1/√2</td><td>½</td><td>0</td></tr>
+        <tr><th>tan</th><td>0</td><td>1/√3</td><td>1</td><td>√3</td><td>∞</td></tr>
+      </table>
+      <div class="note">Trick: sin row = 0,1,2,3,4 under √ ÷2</div>
+    </div>
+    <div class="card" data-k="proof example identity 2 cot tan sec cosec">
+      <h3>Classic proof from the paper</h3>
+      <div class="formula">(1 + cot θ − cosec θ)(1 + tan θ + sec θ) = <b>2</b></div>
+      <div class="note">Write over sin θ and cos θ, use (a+b)²−1² and sin²θ+cos²θ=1</div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 Heights -->
+<section id="heights">
+  <div class="sec-head"><div class="sec-num">4</div>
+    <h2>Heights &amp; Distances <small>Angles of elevation &amp; depression</small></h2></div>
+  <div class="grid">
+    <div class="card" data-k="tan theta opposite adjacent height distance main tool">
+      <h3>The workhorse — tan θ</h3>
+      <div class="formula"><b>tan θ =</b> <span class="frac"><span>Opposite</span><span>Adjacent</span></span>
+        = <span class="frac"><span>Height</span><span>Horizontal distance</span></span></div>
+      <div class="note">sin/cos used when the slant side is involved</div>
+    </div>
+    <div class="card" data-k="angle elevation depression horizontal observer">
+      <h3>Elevation vs depression</h3>
+      <div class="formula">Object <b>above</b> eye-level → angle of <b>elevation</b> ↑<br>
+        Object <b>below</b> eye-level → angle of <b>depression</b> ↓</div>
+      <div class="note">Depression from A to B = elevation from B to A (alternate angles)</div>
+    </div>
+    <div class="card" data-k="two positions tower trick walking towards change angle">
+      <h3>Two-position trick</h3>
+      <div class="formula">h = <span class="frac"><span>d · tan θ₁ · tan θ₂</span><span>tan θ₁ − tan θ₂</span></span></div>
+      <div class="note">d = distance walked between the two observation points</div>
+    </div>
+    <div class="card" data-k="shadow pole 30 degree sqrt 3 times example">
+      <h3>Shadow fact</h3>
+      <div class="formula">Elevation 30° → <b>shadow = √3 × height</b><br>Elevation 45° → shadow = height</div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 Graphs -->
+<section id="graphs">
+  <div class="sec-head"><div class="sec-num">5</div>
+    <h2>Graphical Representation <small>Histograms &amp; Ogives</small></h2></div>
+  <div class="grid">
+    <div class="card" data-k="histogram bars touching class interval frequency">
+      <h3>Histogram rules</h3>
+      <div class="formula">Bars <b>touching</b> · x-axis = class intervals · height = frequency</div>
+      <div class="note">Unequal widths → use frequency density (height = f ÷ width)</div>
+    </div>
+    <div class="card" data-k="ogive cumulative frequency curve upper limit plot">
+      <h3>Ogive (cumulative curve)</h3>
+      <div class="formula">Plot <b>(upper class limit, cf)</b> points · join with smooth curve<br>
+        Start at (lower limit of 1st class, 0)</div>
+    </div>
+    <div class="card" data-k="median quartile read ogive n by 2 3n by 4">
+      <h3>Read from the ogive</h3>
+      <table>
+        <tr><th>Statistic</th><th>Read x at cf =</th></tr>
+        <tr><td><b>Median</b></td><td>N/2</td></tr>
+        <tr><td><b>Lower quartile Q₁</b></td><td>N/4</td></tr>
+        <tr><td><b>Upper quartile Q₃</b></td><td>3N/4</td></tr>
+      </table>
+      <div class="note">e.g. N=120 → read at 60, 30, 90</div>
+    </div>
+    <div class="card" data-k="mode histogram intersection corners modal class">
+      <h3>Mode from histogram</h3>
+      <div class="formula">Join top corners of <b>modal bar</b> to opposite corners of neighbour bars → x-value where lines cross</div>
+      <div class="note">Modal class = class with the tallest bar</div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 Central tendency -->
+<section id="central">
+  <div class="sec-head"><div class="sec-num">6</div>
+    <h2>Measures of Central Tendency <small>Mean · Median · Quartiles · Mode</small></h2></div>
+  <div class="grid">
+    <div class="card" data-k="mean direct formula sum fx divide sumf shortcut assumed">
+      <h3>Mean</h3>
+      <div class="formula">Direct: x̄ = <span class="frac"><span>Σfx</span><span>Σf</span></span></div>
+      <div class="formula">Shortcut: x̄ = A + <span class="frac"><span>Σfd</span><span>Σf</span></span>, &nbsp; d = x − A</div>
+      <div class="note">Continuous data → use mid-values x = (l + u)/2</div>
+    </div>
+    <div class="card" data-k="median raw data odd even position n+1 by 2">
+      <h3>Median (raw data)</h3>
+      <div class="formula">Arrange in order →<br>n odd: value at position <span class="frac"><span>n+1</span><span>2</span></span><br>
+        n even: mean of <span class="frac"><span>n</span><span>2</span></span>th and <span class="frac"><span>n</span><span>2</span></span>+1th</div>
+    </div>
+    <div class="card" data-k="median grouped continuous formula l cf h frequency">
+      <h3>Median (grouped)</h3>
+      <div class="formula">Median = l + <span class="frac"><span>N/2 − cfₚ</span><span>f</span></span> × h</div>
+      <div class="note">l = lower limit of median class, cfₚ = cf before it, f = its frequency, h = width</div>
+    </div>
+    <div class="card" data-k="mode grouped formula highest frequency modal class f0 f1 f2">
+      <h3>Mode</h3>
+      <div class="formula">Modal class = highest frequency<br>
+        Mode = l + <span class="frac"><span>f₁ − f₀</span><span>2f₁ − f₀ − f₂</span></span> × h</div>
+    </div>
+    <div class="card" data-k="quartiles q1 q3 position interquartile range">
+      <h3>Quartiles</h3>
+      <div class="formula">Q₁ → N/4 · Q₂ = Median → N/2 · Q₃ → 3N/4<br>
+        Inter-quartile range = <b>Q₃ − Q₁</b></div>
+    </div>
+  </div>
+</section>
+
+<div class="tips">
+  <h2>⭐ Exam Tips</h2>
+  <ul>
+    <li>Ogive questions: always show the <b>cf table</b> before plotting.</li>
+    <li>GST: remember <b>CGST = SGST = ½ rate</b> and tax = output − input.</li>
+    <li>Dividend is on <b>face value</b>, never on market value.</li>
+    <li>Check the given set for inequations: <b>x ∈ I / N / W</b>.</li>
+    <li>Recurring deposit: I = <b>P·n(n+1)·r ÷ (100 × 2 × 12)</b>.</li>
+    <li>Heights &amp; distances: draw the figure first and mark <b>tan θ</b> ratios.</li>
+  </ul>
+</div>
+
+<div class="noresult" id="noresult">😕 No formula matches your search.</div>
+</main>
+
+<footer>Mathematics Formula Revision · ICSE Class 10 · Built with Buffy ✦ Press <b>Ctrl/Cmd + P</b> to export as PDF</footer>
+
+<script>
+  const cards=[...document.querySelectorAll('.card')];
+  const sections=[...document.querySelectorAll('section')];
+  const search=document.getElementById('search');
+  const noresult=document.getElementById('noresult');
+
+  search.addEventListener('input',()=>{
+    const q=search.value.trim().toLowerCase();
+    let any=false;
+    cards.forEach(c=>{
+      const hit=!q||c.dataset.k.includes(q)||c.textContent.toLowerCase().includes(q);
+      c.classList.toggle('hidden',!hit);
+      if(hit)any=true;
+    });
+    sections.forEach(s=>{
+      const visible=[...s.querySelectorAll('.card')].some(c=>!c.classList.contains('hidden'));
+      s.classList.toggle('hidden',q&&!visible);
+    });
+    noresult.style.display=any?'none':'block';
+  });
+
+  // highlight active pill on scroll
+  const pills=[...document.querySelectorAll('nav.pills a')];
+  const obs=new IntersectionObserver(es=>{
+    es.forEach(e=>{
+      if(e.isIntersecting){
+        pills.forEach(p=>p.classList.toggle('active',p.getAttribute('href')==='#'+e.target.id));
+      }
+    });
+  },{rootMargin:'-40% 0px -55% 0px'});
+  sections.forEach(s=>obs.observe(s));
+
+  // expand-all button is a no-op placeholder for future accordion cards
+  document.getElementById('expandAll').addEventListener('click',()=>{
+    cards.forEach(c=>c.classList.remove('hidden'));
+    search.value='';
+    sections.forEach(s=>s.classList.remove('hidden'));
+    noresult.style.display='none';
+  });
+</script>
+</body>
+</html>
